@@ -1,0 +1,47 @@
+body{
+  margin: 0px;
+  padding: 5px;
+  overflow-x: hidden;
+}
+
+
+
+.posts {
+  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.post{
+  min-width: 10rem;
+  max-width: 20rem;
+  min-height: 20rem;
+  padding: 1rem;
+  border: 2px solid rgb(58, 58, 58);
+  border-radius: 0.3rem;
+}
+
+.posts-parent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post:hover {
+  box-shadow: 3px 3px #424224;
+  transition: box-shadow 200ms ease-in-out;
+}
+
+.heading{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.posts-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
