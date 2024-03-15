@@ -77,9 +77,9 @@ footer {
 
 .post-info {
   display: flex;
+  max-width: 40rem;
+  max-height: 50rem;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   border: 1px solid #424224;
   padding: 30px;
   box-shadow: 5px 5px #212121;
@@ -100,8 +100,13 @@ footer {
 .comment-parent {
   display: flex;
   flex-direction: column;
+  width: 75%;
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: #e0dfdf;
   padding: 4px;
+}
+
+.comment-parent > div {
+  width: fit-content;
 }

@@ -34,7 +34,7 @@ function Post() {
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
     const data = await response.json()
     setPostComments(data);
-    setShowComments(true)
+    setShowComments(prev => !prev)
   }
   const mappedComments = postComments.map((postComment, index) => {
     return (
@@ -51,9 +51,11 @@ function Post() {
       <div className='post-info'>
         <p className='post-title'>{postData.title}</p>
         <p className='post-body'>{postData.body}</p>
-        <button onClick={handleCommentClick}>
-          <LiaComments />
-        </button>
+        <div>
+          <button onClick={handleCommentClick}>
+            <LiaComments />
+          </button>
+        </div>
         <div>
           {showComments && mappedComments}
         </div>
