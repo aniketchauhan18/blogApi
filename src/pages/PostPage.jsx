@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 
 function PostPage() {
   const [posts, setPosts] = useState([]);
-  const [comments, setComments] = useState([])
-  const [showComment, setShowComment] = useState(false)
 
   //using .then syntax
 
@@ -26,15 +24,6 @@ function PostPage() {
     }
     fetchData()
   },[]);
-
-  useEffect(() => {
-    const fetchComments = async () => {
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts/2/comments');
-      const data = await response.json();
-      setComments(data)
-    }
-    fetchComments()
-  }, [showComment])
 
   const mappedPosts = posts.map((post, index) => {
     const postId = index + 1;
