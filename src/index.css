@@ -4,44 +4,83 @@ body{
   overflow-x: hidden;
 }
 
-
-
-.posts {
-  gap: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.post{
-  min-width: 10rem;
-  max-width: 20rem;
-  min-height: 20rem;
-  padding: 1rem;
-  border: 2px solid rgb(58, 58, 58);
-  border-radius: 0.3rem;
-}
-
-.posts-parent{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.post:hover {
+/* .post:hover {
   box-shadow: 3px 3px #424224;
   transition: box-shadow 200ms ease-in-out;
-}
+} */
 
 .heading{
   display: flex;
   justify-content: center;
   text-align: center;
+  font-size: 3rem;
+  padding: 0.5rem;
+  border: 0.01rem solid #424224;
+  box-shadow: 3px 3px #424224;
+  border-radius: 0.2rem;
+}
+
+.heading-parent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .posts-parent {
   display: flex;
+  flex-direction: column;
+}
+
+main {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+  font-size: 3rem;
+}
+
+button{
+  border:   1px solid #424224;
+  box-shadow: 2px 2px #424224;
+  background-color: white;
+  font-size: 1rem;
+  padding: 0.2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 0.1rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+
+main > p {
+  display: flex;
   justify-content: center;
   align-items: center;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  bottom: 0;
+}
+
+.post-parent {
+  display: flex;
+  justify-content: center;
+}
+
+.post-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-info > p {
+  font: 600;
+  font-family: bold;
 }
