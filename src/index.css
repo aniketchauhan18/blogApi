@@ -75,6 +75,16 @@ footer {
   height: 100vh;
 }
 
+.post {
+  border-bottom: 1.5px solid #a0a0a0;
+  margin-bottom: 10px;
+  padding: 3px;
+}
+
+.posts {
+  padding: 10px;
+}
+
 .post-info {
   display: flex;
   max-width: 40rem;
@@ -83,14 +93,11 @@ footer {
   border: 1px solid #424224;
   padding: 30px;
   box-shadow: 5px 5px #212121;
-  position: relative;
 }
 
 .post-info > .post-title {
   font-size: 25px;
 }
-
-
 
 .post-info > .post-body {
   font-size: 15px;
