@@ -24,6 +24,7 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 .posts-parent {
@@ -47,12 +48,9 @@ button{
 
 
 footer {
-  position: fixed;
-  width: 100%;
   display: flex;
   justify-content: center;
-  text-align: center;
-  bottom: 0;
+  align-items: center;
 }
 
 .post-parent {
@@ -179,6 +177,10 @@ main > img {
   }
   header {
     font-size: 30px;
+  }
+
+  .comment-parent{
+    font-size: 10px;
   }
 
   main > img {
