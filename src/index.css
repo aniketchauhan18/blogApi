@@ -114,6 +114,26 @@ footer {
   padding: 4px;
 }
 
+.parent-postpage {
+  display: flex;
+  justify-content: center;
+}
 .comment-parent > div {
   width: fit-content;
+}
+
+.icons-group{
+  margin-bottom: 10px;
+}
+
+.icons {
+  border: 1px solid rgb(112, 112, 112);
+  box-shadow: 1px 1px rgb(112, 112, 112);
+  color: #212121;
+  text-decoration: none;
+  padding: 2px 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 0.1rem;
+  cursor: pointer;
+  letter-spacing: 1px;
 }

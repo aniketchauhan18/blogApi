@@ -31,7 +31,7 @@ function PostPage() {
     return (
       <div className="post" key={index}>
         <p>
-          <strong>Title: </strong> {post.title}
+          <strong>{post.title}</strong> 
         </p>
         <div className="icons-group">
           <Link to={`${postId}`} className="icons">click</Link>
@@ -41,8 +41,10 @@ function PostPage() {
   })
 
   return (
-    <div className="posts-parent">
-      {mappedPosts}
+    <div className="parent-postpage">
+      <div className="posts">
+        {mappedPosts} 
+      </div>
     </div>
   )
 }
