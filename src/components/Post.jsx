@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { LiaComments } from "react-icons/lia";
+import { AiOutlineDelete } from "react-icons/ai";
+import EditableText from './EditableText';
 
 
 function Post() {
@@ -18,12 +20,18 @@ function Post() {
     fetchPostData()
   }, []);
 
-  const handleCommentClick = async() => {
+  const handleCommentClick = useCallback(async() => {
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
     const data = await response.json()
     setPostComments(data);
     setShowComments(prev => !prev)
-  };
+  }, [id]);
+
+  async function handleDeleteClick () {
+    await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+      method: 'DELETE',
+    });
+  }
 
   const mappedComments = postComments.map((postComment, index) => {
     return (
@@ -35,15 +43,22 @@ function Post() {
     )
   });
 
+  const initialText = postData.title;
+
   return (
     <div className='post-parent'>
       <div className='post-info'>
-        <p className='post-title'>{postData.title}</p>
+        <div className='post-title'>
+          <EditableText initialText={initialText}/>
+        </div>
         <p className='post-body'>{postData.body}</p>
         <div className='btns-parent'>
           <button onClick={handleCommentClick}>
             <LiaComments />
           </button>
+          <button>
+            <AiOutlineDelete onClick={handleDeleteClick}/>
+          </button> 
         </div>
         <div>
           {showComments && mappedComments}
