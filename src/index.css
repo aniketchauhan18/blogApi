@@ -56,6 +56,11 @@ button{
   letter-spacing: 1px;
 }
 
+button:hover {
+  background-color: #a3a3a3;
+  transition:200ms ease-in-out;
+  color: rgb(255, 255, 255);
+}
 
 
 footer {
@@ -69,12 +74,14 @@ footer {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 2rem;
 }
 
 .post {
   border-bottom: 1.5px solid #a0a0a0;
   margin-bottom: 10px;
   padding: 3px;
+  font-size: 20px;
 }
 
 .posts {
@@ -128,7 +135,9 @@ footer {
   color: #212121;
   text-decoration: none;
   padding: 2px 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
   border-radius: 0.1rem;
   cursor: pointer;
   letter-spacing: 1px;
@@ -207,6 +216,16 @@ main > img {
 
   main > img {
     height: 200px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .post {
+    font-size: 15px;
+  }
+
+  .post-title{
+    font-size: 10px;
   }
 }
 
