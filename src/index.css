@@ -4,12 +4,18 @@ body{
   overflow-x: hidden;
 }
 
+#root {
+  margin: 0;
+  padding: 0;
+}
+
 /* .post:hover {
   box-shadow: 3px 3px #424224;
   transition: box-shadow 200ms ease-in-out;
 } */
 .header1{
   margin-bottom: 30px;
+  width: 100%;
 }
 
 .btns-parent {
@@ -43,10 +49,35 @@ header{
   align-items: center;
   margin-bottom: 1rem;
 }
+.home-intro {
+  display: flex;
+  font-size: 34px;
+  gap: 0;
+  flex-direction: column;
+}
 
 .posts-parent {
   display: flex;
   flex-direction: column;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  height: 50vh;
+  gap: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  justify-content: center;
+}
+
+.home > div {
+  display: flex;
+  max-width: 40rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  width: 100%;
 }
 
 
@@ -236,6 +267,13 @@ main > img {
     display: flex;
     align-items: center;
     flex-direction: column;
+  }
+  .home{
+    display: flex;
+    flex-direction: column;
+  }
+  .home>div {
+    font-size: 20px;
   }
   header {
     font-size: 30px;
