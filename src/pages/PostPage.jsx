@@ -22,7 +22,7 @@ function PostPage() {
       const data = await response.json();
       setPosts(data)
     }
-    fetchData()
+    fetchData();
   },[]);
 
   const mappedPosts = posts.map((post, index) => {
@@ -34,7 +34,7 @@ function PostPage() {
           <strong>{post.title}</strong> 
         </p>
         <div className="icons-group">
-          <Link to={`${postId}`} className="icons">click</Link>
+          <Link to={`${postId}`} className="icons">Click</Link>
         </div>
       </div>
     )

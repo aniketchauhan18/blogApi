@@ -43,15 +43,18 @@ function Post() {
     )
   });
 
-  const initialText = postData.title;
+  const initialTitle = postData.title;
+  const initialBody = postData.body;
 
   return (
     <div className='post-parent'>
       <div className='post-info'>
         <div className='post-title'>
-          <EditableText initialText={initialText}/>
+          <EditableText initialTitle={initialTitle} initialBody={initialBody}/>
         </div>
-        <p className='post-body'>{postData.body}</p>
+        <div className='post-body'>
+          {postData.body}
+        </div>
         <div className='btns-parent'>
           <button onClick={handleCommentClick}>
             <LiaComments />

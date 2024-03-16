@@ -46,10 +46,8 @@ header{
 
 button{
   border:   1px solid #424224;
-  box-shadow: 2px 2px #424224;
   background-color: white;
   font-size: 1rem;
-  padding: 0.2rem 1rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border-radius: 0.1rem;
   cursor: pointer;
@@ -57,9 +55,8 @@ button{
 }
 
 button:hover {
-  background-color: #a3a3a3;
+  background-color: #ececec;
   transition:200ms ease-in-out;
-  color: rgb(255, 255, 255);
 }
 
 
@@ -100,7 +97,14 @@ footer {
 
 .post-info > .post-title {
   font-size: 25px;
+  justify-content: center;
+  align-items: center;
 }
+
+.post-title > button {
+  margin-left: 5px;
+}
+
 
 .post-info > .post-body {
   font-size: 15px;
@@ -114,7 +118,8 @@ footer {
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: #e0dfdf;
-  padding: 4px;
+  padding: 5px;
+  border-radius: 3px;
 }
 
 .parent-postpage {
@@ -195,6 +200,16 @@ main > img {
 
 .cmt-parent > input {
   padding: 3px;
+}
+
+.edit-input {
+  width: 80%;
+  font-size: 25px;
+}
+
+.edit-cmp {
+  display: flex;
+  gap : 10px;
 }
 
 @media only screen and (max-width:900px) {
