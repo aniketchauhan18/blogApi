@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { LiaComments } from "react-icons/lia";
 import { AiOutlineDelete } from "react-icons/ai";
+import { FaRegEdit } from "react-icons/fa";
 import EditableText from './EditableText';
 
 
@@ -9,6 +10,7 @@ function Post() {
   const [postData, setPostData] = useState([]);
   const [postComments, setPostComments] = useState([]);
   const [showComments, setShowComments] = useState(false);
+  const [isEditing , setIsEditing] = useState(false);
   const { id }  = useParams();
   
   useEffect(() => {
@@ -43,6 +45,10 @@ function Post() {
     )
   });
 
+  const handleEditClick = () => {
+    setIsEditing(prev => !prev)
+  }
+
   const initialTitle = postData.title;
   const initialBody = postData.body;
 
@@ -50,18 +56,21 @@ function Post() {
     <div className='post-parent'>
       <div className='post-info'>
         <div className='post-title'>
-          <EditableText initialTitle={initialTitle} initialBody={initialBody}/>
+          <EditableText initialTitle={initialTitle} initialBody={initialBody} isEditing={isEditing}/>
         </div>
-        <div className='post-body'>
+        {/* <div className='post-body'>
           {postData.body}
-        </div>
+        </div> */}
         <div className='btns-parent'>
           <button onClick={handleCommentClick}>
             <LiaComments />
           </button>
           <button>
             <AiOutlineDelete onClick={handleDeleteClick}/>
-          </button> 
+          </button>
+          <button onClick={handleEditClick}>
+            <FaRegEdit />
+          </button>
         </div>
         <div>
           {showComments && mappedComments}

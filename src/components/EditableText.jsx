@@ -1,57 +1,73 @@
 import { useEffect, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 
-function EditableText({ initialText }) {
-  const [text, setText] = useState("")
-  const [isEditing , setIsEditing] = useState(false);
+function Editabletitle({ initialTitle, initialBody , isEditing}) {
+  const [title, setTitle] = useState("")
+  const [body, setBody] = useState("")
 
-  const handleChange = (e) => {
-    setText(e.target.value);
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value)
   }
+
+  const handleBodyChange = (e) => {
+    setBody(e.target.value)
+  }
+  
 
   useEffect(() => {
-    setText(initialText)
-  }, [initialText])
-
-  const handleEditClick = () => {
-    setIsEditing(prev => !prev)
-  }
+    setTitle(initialTitle)
+    setBody(initialBody)
+  }, [initialTitle, initialBody])
 
   const handleKeyPress = async (e) => {
     if (e.key === "Enter") {
       const response = await fetch('https://jsonplaceholder.typicode.com/posts/1', {
         method: 'PATCH',
         body: JSON.stringify({
-          title: {text},
+          title: {title},
         }),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
         },
       })
       const data = await response.json();
-      setText(data.title.text);
+      setTitle(data.title.title);
       e.target.blur()
     }
   }
 
+  
+
   return (
     <div className="edit-cmp">
-      {isEditing ?
-        <input
-          className="edit-input"
-          type="text"
-          value={text} 
-          onChange={handleChange}
-          onKeyDown={handleKeyPress}
-        />: <span>
-          {text}
-        </span>
-      }
-      <button onClick={handleEditClick}>
-        <FaRegEdit />
-      </button>
+      <div className="post-t">
+        {isEditing ?
+          <input
+            className="edit-input post-t"
+            type="title"
+            value={title} 
+            onChange={handleTitleChange}
+            onKeyDown={handleKeyPress}
+          />: <span>
+            {title}
+          </span>
+        }
+      </div>
+      <div className="post-b">
+        {isEditing ?
+          <input
+            className="edit-input post-b"
+            type="title"
+            value={body} 
+            onChange={handleBodyChange}
+            onKeyDown={handleKeyPress}
+          />: <span>
+            {body}
+          </span>
+        }
+      </div>
     </div>
   )
 }
 
-export default EditableText;
+export default Editabletitle;
