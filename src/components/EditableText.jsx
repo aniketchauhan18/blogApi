@@ -44,7 +44,7 @@ function Editabletitle({ initialTitle, initialBody , isEditing}) {
         {isEditing ?
           <input
             className="edit-input post-t"
-            type="title"
+            type="textarea"
             value={title} 
             onChange={handleTitleChange}
             onKeyDown={handleKeyPress}

@@ -1,18 +1,14 @@
 import HomePage from "./pages/HomePage"
 import PostPage from "./pages/PostPage"
 import Post from "./components/Post"
+import Header from "./components/Header"
 import { Routes, Route } from "react-router-dom"
 
 function App() {
 
   return(
     <>
-      <div className="heading-parent">
-        <header className="heading">
-          BOOO-LAA-LAAA
-        </header>
-      </div>
-      <hr />
+      <Header />
       <Routes>
         <Route path="/"  element={<HomePage />}/>
         <Route path="/posts" element={<PostPage />}/>
