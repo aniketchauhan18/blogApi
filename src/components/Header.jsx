@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 function Header() {
   return (
-    <div>
+    <div className="header1">
       <Link to={'/'} className="heading-parent">
         <header className="heading">
           BOOO-LAA-LAAA

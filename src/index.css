@@ -8,6 +8,9 @@ body{
   box-shadow: 3px 3px #424224;
   transition: box-shadow 200ms ease-in-out;
 } */
+.header1{
+  margin-bottom: 30px;
+}
 
 .btns-parent {
   display: flex;
