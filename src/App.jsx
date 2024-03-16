@@ -7,6 +7,12 @@ function App() {
 
   return(
     <>
+      <div className="heading-parent">
+        <header className="heading">
+          BOOO-LAA-LAAA
+        </header>
+      </div>
+      <hr />
       <Routes>
         <Route path="/"  element={<HomePage />}/>
         <Route path="/posts" element={<PostPage />}/>

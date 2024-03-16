@@ -9,6 +9,17 @@ body{
   transition: box-shadow 200ms ease-in-out;
 } */
 
+.btns-parent {
+  display: flex;
+  gap: 10px
+}
+
+.btns-parent > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 header{
   display: flex;
   justify-content: center;
@@ -164,6 +175,17 @@ main > img {
   border-radius: 0.1rem;
   cursor: pointer;
   letter-spacing: 1px;
+}
+
+.cmt-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px
+}
+
+.cmt-parent > input {
+  padding: 3px;
 }
 
 @media only screen and (max-width:900px) {
