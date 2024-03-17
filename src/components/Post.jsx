@@ -24,25 +24,26 @@ function Post() {
   }, []);
 
   const handleCommentClick = useCallback(async() => {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
-    const data = await response.json()
-    setPostComments(data);
-    setShowComments(prev => !prev)
+    try {
+      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
+      const data = await response.json()
+      setPostComments(data);
+      setShowComments(prev => !prev)
+    } catch (err) {
+      console.log("Error", err)
+    }
   }, [id]);
 
   async function handleDeleteClick () {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-      method: 'DELETE',
-    });
-    async function fetchPostData () {
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-      const data = await response.json();
-      setPostData(data)
+    try {
+      await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+        method: 'DELETE',
+      }); 
+    } catch (err) {
+      console.log( "Error",err)
     }
-    fetchPostData();
     setIsDeleted(true);
   }
-
 
   const mappedComments = postComments.map((postComment, index) => {
     return (

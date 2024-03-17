@@ -4,25 +4,17 @@ import { Link } from "react-router-dom";
 function PostPage() {
   const [posts, setPosts] = useState([]);
 
-  //using .then syntax
-
-  // useEffect(() => {
-  //   fetch('https://jsonplaceholder.typicode.com/posts')
-  //     .then((res) => res.json())
-  //     .then((data) => setPosts(data))
-  //     .catch((err) => console.log(err))
-  // }, [])
-
-
-  //using async syntax
-
   useEffect( () => {
-    const fetchData = async () => {
-      const response = await  fetch('https://jsonplaceholder.typicode.com/posts');
-      const data = await response.json();
-      setPosts(data)
+    try {
+      const fetchData = async () => {
+        const response = await  fetch('https://jsonplaceholder.typicode.com/posts');
+        const data = await response.json();
+        setPosts(data)
+      }
+      fetchData();
+    } catch (err) {
+      console.log("Error", err);
     }
-    fetchData();
   },[]);
 
   const mappedPosts = posts.map((post, index) => {

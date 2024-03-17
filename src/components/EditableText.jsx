@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { FaRegEdit } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 
 function Editabletitle({ initialTitle, initialBody , isEditing}) {
@@ -22,20 +21,24 @@ function Editabletitle({ initialTitle, initialBody , isEditing}) {
 
   const handleKeyPress = async (e) => {
     if (e.key === "Enter") {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-        method: 'PATCH',
-        body: JSON.stringify({
-          title,
-          body
-        }),
-        headers: {
-          'Content-type': 'application/json',
-        },
-      })
-      const data = await response.json();
-      setTitle(data.title);
-      setBody(data.body)
-      e.target.blur()
+      try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+          method: 'PATCH',
+          body: JSON.stringify({
+            title,
+            body
+          }),
+          headers: {
+            'Content-type': 'application/json',
+          },
+        })
+        const data = await response.json();
+        setTitle(data.title);
+        setBody(data.body)
+        e.target.blur()
+      } catch (err) {
+        console.log("Error", err);
+      }
     }
   }
 

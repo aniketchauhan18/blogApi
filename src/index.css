@@ -383,6 +383,9 @@ main > img {
   }
 }
 @media only screen and (max-width: 500px) {
+
+  
+  
   .post-t  {
     font-family: "Chakra Petch", sans-serif;
     font-weight: 700;
