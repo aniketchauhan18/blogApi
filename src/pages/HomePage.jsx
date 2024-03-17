@@ -1,18 +1,26 @@
 import { Link } from 'react-router-dom';
-import blog from '../assets/blog.svg' 
 
 function HomePage() {
   return (
-    <div className='home'>
+    <div 
+      className='home'
+      style={{
+        height :'80vh'
+      }}
+    >
       {/* <Link to={'posts'} className='blogs-link'>
         See Blogs
       </Link> */}
-      <div>
-        At BOOO-LAA-LAAA, we are passionate about nothing. Our mission is to sleep
+      <div>  
+        <div>
+          At BOOO-LAA-LAAA , Our mission is LA LA 
+        </div>
+        <div>
+          <Link to={'posts'} className='blogs-link'>
+            See Blogs
+          </Link>
+        </div>
       </div>
-      <Link to={'posts'} className='blogs-link'>
-        See Blogs
-      </Link>
       
     </div>
   )
