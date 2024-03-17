@@ -279,6 +279,22 @@ main > img {
   font-size: 18px;
 }
 
+.delete-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  gap: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.delete-btn > .blogs-link {
+  font-size: 30px;
+}
+
 @media only screen and (max-width:900px) {
   body {
     overflow-x: hidden;
@@ -312,9 +328,14 @@ main > img {
     font-size: 14px;
   }
 
-  main > img {
-    height: 200px;
+  .delete-btn {
+    font-size: 40px;
   }
+
+  .delete-btn > .blogs-link {
+    font-size: 28px;
+  }
+
 }
 
 @media only screen and (max-width: 700px) {
@@ -351,6 +372,14 @@ main > img {
   .comment-parent{
     min-width: 90%;
     font-size: 10px;
+  }
+
+  .delete-btn {
+    font-size: 30px;
+  }
+
+  .delete-btn > .blogs-link {
+    font-size: 25px;
   }
 }
 @media only screen and (max-width: 500px) {
@@ -389,6 +418,14 @@ main > img {
 
   .post-info{
     width: 80%;
+  }
+
+  .delete-btn {
+    font-size: 18px;
+  }
+
+  .delete-btn > .blogs-link {
+    font-size: 12px;
   }
 }
 

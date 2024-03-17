@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { LiaComments } from "react-icons/lia";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FaRegEdit } from "react-icons/fa";
@@ -11,6 +11,7 @@ function Post() {
   const [postComments, setPostComments] = useState([]);
   const [showComments, setShowComments] = useState(false);
   const [isEditing , setIsEditing] = useState(false);
+  const [isDeleted, setIsDeleted] = useState(false);
   const { id }  = useParams();
   
   useEffect(() => {
@@ -30,10 +31,18 @@ function Post() {
   }, [id]);
 
   async function handleDeleteClick () {
-    await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
       method: 'DELETE',
     });
+    async function fetchPostData () {
+      const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+      const data = await response.json();
+      setPostData(data)
+    }
+    fetchPostData();
+    setIsDeleted(true);
   }
+
 
   const mappedComments = postComments.map((postComment, index) => {
     return (
@@ -54,28 +63,35 @@ function Post() {
 
   return (
     <div className='post-parent'>
-      <div className='post-info'>
-        <div className='post-title'>
-          <EditableText initialTitle={initialTitle} initialBody={initialBody} isEditing={isEditing}/>
+      {isDeleted ? (
+        <div className='delete-btn'>
+          <span>Aap humka maar diye!</span>
+          <Link to={'/posts'} className='blogs-link'>Backlog to dekh lo</Link>
         </div>
-        {/* <div className='post-body'>
-          {postData.body}
-        </div> */}
-        <div className='btns-parent'>
-          <button onClick={handleCommentClick}>
-            <LiaComments />
-          </button>
-          <button>
-            <AiOutlineDelete onClick={handleDeleteClick}/>
-          </button>
-          <button onClick={handleEditClick}>
-            <FaRegEdit />
-          </button>
+      ) : (
+        <div className='post-info'>
+          <div className='post-title'>
+            <EditableText initialTitle={initialTitle} initialBody={initialBody} isEditing={isEditing}/>
+          </div>
+          {/* <div className='post-body'>
+            {postData.body}
+          </div> */}
+          <div className='btns-parent'>
+            <button onClick={handleCommentClick}>
+              <LiaComments />
+            </button>
+            <button onClick={handleDeleteClick}>
+              <AiOutlineDelete />
+            </button>
+            <button onClick={handleEditClick}>
+              <FaRegEdit />
+            </button>
+          </div>
+          <div>
+            {showComments && mappedComments}
+          </div>
         </div>
-        <div>
-          {showComments && mappedComments}
-        </div>
-      </div>
+      )}
     </div>
   )
 }

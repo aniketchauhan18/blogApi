@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
+import { useParams } from "react-router-dom";
 
 function Editabletitle({ initialTitle, initialBody , isEditing}) {
   const [title, setTitle] = useState("")
-  const [body, setBody] = useState("")
-
+  const [body, setBody] = useState("");
+  const { id } = useParams()
   const handleTitleChange = (e) => {
     setTitle(e.target.value)
   }
@@ -21,17 +22,19 @@ function Editabletitle({ initialTitle, initialBody , isEditing}) {
 
   const handleKeyPress = async (e) => {
     if (e.key === "Enter") {
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts/1', {
+      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
         method: 'PATCH',
         body: JSON.stringify({
-          title: {title},
+          title,
+          body
         }),
         headers: {
-          'Content-type': 'application/json; charset=UTF-8',
+          'Content-type': 'application/json',
         },
       })
       const data = await response.json();
-      setTitle(data.title.title);
+      setTitle(data.title);
+      setBody(data.body)
       e.target.blur()
     }
   }
