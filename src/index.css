@@ -295,6 +295,11 @@ main > img {
   font-size: 30px;
 }
 
+textarea{
+  text-decoration: none;
+  padding: 2px;
+}
+
 @media only screen and (max-width:900px) {
   body {
     overflow-x: hidden;

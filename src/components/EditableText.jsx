@@ -61,7 +61,7 @@ function Editabletitle({ initialTitle, initialBody , isEditing}) {
       </div>
       <div className="post-b">
         {isEditing ?
-          <input
+          <textarea
             className="edit-input post-b"
             type="title"
             value={body} 
